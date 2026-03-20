@@ -16,7 +16,16 @@ def request_sanatized_num(prompt: str) -> float:
         except ValueError:
             print("Invalid input number. Please enter a valid number.")
 
-
+def request_sanitized_operation(prompt: str) -> str:
+    valid_operations = {"add", "subtract", "multiply", "divide"}
+    
+    while True:
+        operation = input(prompt).strip().lower()
+        if operation in valid_operations:
+            return operation
+        else:
+            print("Invalid operation. Please choose from add, subtract, multiply, or divide.")
+            
 def simple_calculator(operation: str, num1: float, num2: float) -> float:
     """
     Function that takes in two numbers and an operation (add, subtract, multiply, divide),
